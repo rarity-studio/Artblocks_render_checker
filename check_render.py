@@ -49,9 +49,9 @@ for i in range(0,max):
 
     # get live generated image
     image_url_live=add_live+prefix+num_l 
-    name_live=prefix+'00'+num_l+'_live'+'.png'
+    name_live=prefix+num_l+'_live'+'.png'
     driver.get(image_url_live)
-    base64_image = driver.execute_script("return document.querySelectorAll('canvas')[1].toDataURL('image/png').substring(21);")
+    base64_image = driver.execute_script("return document.querySelectorAll('canvas')[0].toDataURL('image/png').substring(21);")
     img_live = base64.b64decode(base64_image)
     # save it
     with open(name_live, 'wb') as f:
